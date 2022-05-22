@@ -1,0 +1,1035 @@
+<html
+        xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>Jira</title>
+<style type="text/css">
+table {
+    mso-displayed-decimal-separator:"\.";
+    mso-displayed-thousand-separator:"\,";
+}
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color:black;
+}
+
+</style>
+<META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+<!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+<!--
+Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+since Excel does not use or save the css files it is hardcoded here.
+-->
+<style>
+@page
+{
+mso-page-orientation:landscape;
+margin:.25in .25in .5in .25in;
+mso-header-margin:.5in;
+mso-footer-margin:.25in;
+mso-footer-data:"&R&P of &N";
+mso-horizontal-page-align:center;
+mso-vertical-page-align:center;
+}
+
+td.issuekey,
+td.issuetype,
+td.status {
+    mso-style-parent: "";
+    mso-number-format: \@;
+    text-align: left;
+}
+br
+{
+    mso-data-placement:same-cell;
+}
+
+td
+{
+    vertical-align: top;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>general_report</x:Name>
+<x:WorksheetOptions>
+<x:Print>
+<x:ValidPrinterInfo/>
+</x:Print>
+</x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+
+<table border="1">
+    <tr bgcolor="#205081" height="30">
+        <td colspan="46">
+            <img src="https://octolabtechsolution.atlassian.net/images/icon-jira-software-logo.png" width="57" height="30" border="0" alt="Jira">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="46">
+            <a href="https://octolabtechsolution.atlassian.net/issues/?jql=project+%3D+ISMDL+ORDER+BY+Rank+ASC">Jira</a>
+        </td>
+    </tr>
+    <tr>
+                <td colspan="46">
+            Displaying <strong>10</strong> issues at <strong>10/May/22 8:57 PM</strong>.
+        </td>
+    </tr>
+</table>
+
+
+
+
+                                        <table id="issuetable" class="aui " border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-project" data-id="project">
+                                                        Project
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                                                        Key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                                                        Summary
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                                                        Issue Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                                                        Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-priority" data-id="priority">
+                                                        Priority
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolution" data-id="resolution">
+                                                        Resolution
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-assignee" data-id="assignee">
+                                                        Assignee
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-reporter" data-id="reporter">
+                                                        Reporter
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-creator" data-id="creator">
+                                                        Creator
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-created" data-id="created">
+                                                        Created
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-lastViewed" data-id="lastViewed">
+                                                        Last Viewed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-updated" data-id="updated">
+                                                        Updated
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolutiondate" data-id="resolutiondate">
+                                                        Resolved
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-versions" data-id="versions">
+                                                        Affects versions
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                                                        Fix versions
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-components" data-id="components">
+                                                        Components
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-duedate" data-id="duedate">
+                                                        Due date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-votes" data-id="votes">
+                                                        Votes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-watches" data-id="watches">
+                                                        Watchers
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-thumbnail" data-id="thumbnail">
+                                                        Images
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeoriginalestimate" data-id="timeoriginalestimate">
+                                                        Original estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeestimate" data-id="timeestimate">
+                                                        Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timespent" data-id="timespent">
+                                                        Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-workratio" data-id="workratio">
+                                                        Work Ratio
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-subtasks" data-id="subtasks">
+                                                        Sub-tasks
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuelinks" data-id="issuelinks">
+                                                        Linked Issues
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-environment" data-id="environment">
+                                                        Environment
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                                                        Description
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-security" data-id="security">
+                                                        Security Level
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-progress" data-id="progress">
+                                                        Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregateprogress" data-id="aggregateprogress">
+                                                        Σ Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimespent" data-id="aggregatetimespent">
+                                                        Σ Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeestimate" data-id="aggregatetimeestimate">
+                                                        Σ Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeoriginalestimate" data-id="aggregatetimeoriginalestimate">
+                                                        Σ Original Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-labels" data-id="labels">
+                                                        Labels
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statuscategorychangedate" data-id="statuscategorychangedate">
+                                                        Status Category Changed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statusCategory" data-id="statusCategory">
+                                                        Status Category
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-parent" data-id="parent">
+                                                        Parent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10021" data-id="customfield_10021">
+                                                        Flagged
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10017" data-id="customfield_10017">
+                                                        Issue color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10019" data-id="customfield_10019">
+                                                        Rank
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10020" data-id="customfield_10020">
+                                                        Sprint
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10015" data-id="customfield_10015">
+                                                        Start date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10016" data-id="customfield_10016">
+                                                        Story point estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10000" data-id="customfield_10000">
+                                                        Development
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow10064" rel="10064" data-issuekey="ISMDL-10" class="issuerow">
+                                            <td class="project">    Instituto Santa Maria de Lourdes
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ISMDL-10" href="https://octolabtechsolution.atlassian.net/browse/ISMDL-10">ISMDL-10</a>
+</td>
+                                            <td class="summary"><p>
+                Armar DER
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Emilio Nuñez
+    </td>
+                                            <td class="reporter">            Emilio Nuñez
+    </td>
+                                            <td class="creator">            Emilio Nuñez
+    </td>
+                                            <td class="created"> 05/May/22 9:16 AM </td>
+                                            <td class="lastViewed"> 10/May/22 8:52 PM </td>
+                                            <td class="updated"> 10/May/22 8:52 PM </td>
+                                            <td class="resolutiondate"> 09/May/22 8:29 AM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 09/May/22 8:29 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000af:0i
+  </td>
+                                            <td class="customfield_10020">ISMDL Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    3
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10063" rel="10063" data-issuekey="ISMDL-9" class="issuerow">
+                                            <td class="project">    Instituto Santa Maria de Lourdes
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ISMDL-9" href="https://octolabtechsolution.atlassian.net/browse/ISMDL-9">ISMDL-9</a>
+</td>
+                                            <td class="summary"><p>
+                Spike - Crear componentes para reutilizarlos
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Emilio Nuñez
+    </td>
+                                            <td class="reporter">            Emilio Nuñez
+    </td>
+                                            <td class="creator">            Emilio Nuñez
+    </td>
+                                            <td class="created"> 05/May/22 9:16 AM </td>
+                                            <td class="lastViewed"> 10/May/22 8:52 PM </td>
+                                            <td class="updated"> 10/May/22 8:52 PM </td>
+                                            <td class="resolutiondate"> 09/May/22 8:29 AM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 09/May/22 8:29 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000af:1
+  </td>
+                                            <td class="customfield_10020">ISMDL Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    1
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10062" rel="10062" data-issuekey="ISMDL-8" class="issuerow">
+                                            <td class="project">    Instituto Santa Maria de Lourdes
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ISMDL-8" href="https://octolabtechsolution.atlassian.net/browse/ISMDL-8">ISMDL-8</a>
+</td>
+                                            <td class="summary"><p>
+                Capacitación MySql primeros pasos para crear la base de datos
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Emilio Nuñez
+    </td>
+                                            <td class="reporter">            Emilio Nuñez
+    </td>
+                                            <td class="creator">            Emilio Nuñez
+    </td>
+                                            <td class="created"> 05/May/22 9:15 AM </td>
+                                            <td class="lastViewed"> 10/May/22 8:52 PM </td>
+                                            <td class="updated"> 10/May/22 8:52 PM </td>
+                                            <td class="resolutiondate"> 09/May/22 8:29 AM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 09/May/22 8:29 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000af:2
+  </td>
+                                            <td class="customfield_10020">ISMDL Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    3
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10058" rel="10058" data-issuekey="ISMDL-7" class="issuerow">
+                                            <td class="project">    Instituto Santa Maria de Lourdes
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ISMDL-7" href="https://octolabtechsolution.atlassian.net/browse/ISMDL-7">ISMDL-7</a>
+</td>
+                                            <td class="summary"><p>
+                Instalar MySql
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Emilio Nuñez
+    </td>
+                                            <td class="reporter">            Emilio Nuñez
+    </td>
+                                            <td class="creator">            Emilio Nuñez
+    </td>
+                                            <td class="created"> 02/May/22 10:57 AM </td>
+                                            <td class="lastViewed"> 10/May/22 8:52 PM </td>
+                                            <td class="updated"> 10/May/22 8:52 PM </td>
+                                            <td class="resolutiondate"> 05/May/22 9:14 AM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 05/May/22 9:14 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000af:4
+  </td>
+                                            <td class="customfield_10020">ISMDL Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    3
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10057" rel="10057" data-issuekey="ISMDL-6" class="issuerow">
+                                            <td class="project">    Instituto Santa Maria de Lourdes
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ISMDL-6" href="https://octolabtechsolution.atlassian.net/browse/ISMDL-6">ISMDL-6</a>
+</td>
+                                            <td class="summary"><p>
+                Realizar diagrama de clases
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Emilio Nuñez
+    </td>
+                                            <td class="reporter">            Emilio Nuñez
+    </td>
+                                            <td class="creator">            Emilio Nuñez
+    </td>
+                                            <td class="created"> 01/May/22 8:20 PM </td>
+                                            <td class="lastViewed"> 10/May/22 8:52 PM </td>
+                                            <td class="updated"> 09/May/22 8:43 AM </td>
+                                            <td class="resolutiondate"> 05/May/22 9:14 AM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 05/May/22 9:14 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000af:9
+  </td>
+                                            <td class="customfield_10020">ISMDL Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10056" rel="10056" data-issuekey="ISMDL-5" class="issuerow">
+                                            <td class="project">    Instituto Santa Maria de Lourdes
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ISMDL-5" href="https://octolabtechsolution.atlassian.net/browse/ISMDL-5">ISMDL-5</a>
+</td>
+                                            <td class="summary"><p>
+                Analizar herramientas de diseño para maquetar
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Emilio Nuñez
+    </td>
+                                            <td class="reporter">            Emilio Nuñez
+    </td>
+                                            <td class="creator">            Emilio Nuñez
+    </td>
+                                            <td class="created"> 01/May/22 8:20 PM </td>
+                                            <td class="lastViewed"> 10/May/22 8:53 PM </td>
+                                            <td class="updated"> 10/May/22 8:54 PM </td>
+                                            <td class="resolutiondate"> 05/May/22 9:13 AM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 05/May/22 9:13 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000af:i
+  </td>
+                                            <td class="customfield_10020">ISMDL Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    3
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10055" rel="10055" data-issuekey="ISMDL-4" class="issuerow">
+                                            <td class="project">    Instituto Santa Maria de Lourdes
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ISMDL-4" href="https://octolabtechsolution.atlassian.net/browse/ISMDL-4">ISMDL-4</a>
+</td>
+                                            <td class="summary"><p>
+                Capacitación configurar Jira con Github
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Emilio Nuñez
+    </td>
+                                            <td class="reporter">            Emilio Nuñez
+    </td>
+                                            <td class="creator">            Emilio Nuñez
+    </td>
+                                            <td class="created"> 30/Apr/22 5:10 PM </td>
+                                            <td class="lastViewed"> 10/May/22 8:54 PM </td>
+                                            <td class="updated"> 10/May/22 8:54 PM </td>
+                                            <td class="resolutiondate"> 01/May/22 8:19 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 01/May/22 8:19 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000ag:
+  </td>
+                                            <td class="customfield_10020">ISMDL Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    3
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10053" rel="10053" data-issuekey="ISMDL-2" class="issuerow">
+                                            <td class="project">    Instituto Santa Maria de Lourdes
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ISMDL-2" href="https://octolabtechsolution.atlassian.net/browse/ISMDL-2">ISMDL-2</a>
+</td>
+                                            <td class="summary"><p>
+                Capacitacion Githug - ver video primero usos
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Emilio Nuñez
+    </td>
+                                            <td class="reporter">            Emilio Nuñez
+    </td>
+                                            <td class="creator">            Emilio Nuñez
+    </td>
+                                            <td class="created"> 30/Apr/22 5:09 PM </td>
+                                            <td class="lastViewed"> 10/May/22 8:54 PM </td>
+                                            <td class="updated"> 10/May/22 8:54 PM </td>
+                                            <td class="resolutiondate"> 01/May/22 8:19 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 01/May/22 8:19 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000ah:
+  </td>
+                                            <td class="customfield_10020">ISMDL Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    3
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10054" rel="10054" data-issuekey="ISMDL-3" class="issuerow">
+                                            <td class="project">    Instituto Santa Maria de Lourdes
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ISMDL-3" href="https://octolabtechsolution.atlassian.net/browse/ISMDL-3">ISMDL-3</a>
+</td>
+                                            <td class="summary"><p>
+                Capacitacion configurar Visual estudio con Github
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Emilio Nuñez
+    </td>
+                                            <td class="reporter">            Emilio Nuñez
+    </td>
+                                            <td class="creator">            Emilio Nuñez
+    </td>
+                                            <td class="created"> 30/Apr/22 5:10 PM </td>
+                                            <td class="lastViewed"> 10/May/22 8:54 PM </td>
+                                            <td class="updated"> 10/May/22 8:54 PM </td>
+                                            <td class="resolutiondate"> 01/May/22 8:19 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 01/May/22 8:19 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000aj:
+  </td>
+                                            <td class="customfield_10020">ISMDL Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    3
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10052" rel="10052" data-issuekey="ISMDL-1" class="issuerow">
+                                            <td class="project">    Instituto Santa Maria de Lourdes
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ISMDL-1" href="https://octolabtechsolution.atlassian.net/browse/ISMDL-1">ISMDL-1</a>
+</td>
+                                            <td class="summary"><p>
+                Capacitacion Visual estudio code - ver video configuracion
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Emilio Nuñez
+    </td>
+                                            <td class="reporter">            Emilio Nuñez
+    </td>
+                                            <td class="creator">            Emilio Nuñez
+    </td>
+                                            <td class="created"> 30/Apr/22 5:09 PM </td>
+                                            <td class="lastViewed"> 10/May/22 8:54 PM </td>
+                                            <td class="updated"> 10/May/22 8:54 PM </td>
+                                            <td class="resolutiondate"> 01/May/22 8:19 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 01/May/22 8:19 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000an:
+  </td>
+                                            <td class="customfield_10020">ISMDL Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    3
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+        </tbody>
+    </table>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#dddddd" colspan="46"><font size="1">
+        Generated at Tue May 10 23:57:53 UTC 2022 by Emilio Nuñez using Jira 1001.0.0-SNAPSHOT#100198-sha1:3c518b7e272509556f0600b4a2ec3cae80668775.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>

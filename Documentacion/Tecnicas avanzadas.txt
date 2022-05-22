@@ -1,0 +1,41 @@
+
+
+						Tecnicas avanzadas
+					
+MIRO maqueta:  https://miro.com/app/board/uXjVO3sFv8U=/?share_link_id=914684798368
+Drive: https://drive.google.com/drive/folders/1k8mBhc_SrTFs0y_xlPAXIHqAhNmB_DHO?usp=sharing
+
+software
+	https://www.mozilla.org/es-AR/firefox/developer/
+	https://git-scm.com/downloads
+	https://code.visualstudio.com/
+	https://www.apachefriends.org/es/index.html
+	https://dev.mysql.com/downloads/installer/
+	https://github.com/Americosys/Tecnicas-Avanzadas
+	
+Link info tutoriales
+
+https://www.tutorialesprogramacionya.com/desarrollowebconphp/index.php?inicio=0
+
+
+usar interface (profesor / directivo) class abstract
+
+Estado (Borrado Logico)
+Modificar
+	Quitar el guion bajo, segunda palabra en mayuscula
+
+Recordar: interpuestas (revisar)
+ No todas las clases se mapean con la base datos 
+ 
+ ABM
+	SP todos en la DB
+	
+Diagrama de arquitectura general antes de programar
+mirar los videos de MBC(Framework)
+
+Arrancar por un ABM basico
+probar con datos  
+
+Para el 30 de mayo tenemos un alta
+
+15 julio finaliza la cursada 
