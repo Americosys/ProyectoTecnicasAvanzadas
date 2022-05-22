@@ -1,12 +1,6 @@
 
 https://drive.google.com/drive/folders/1-wPx9JYV0W2wDGDkH2v8xdw9KLdbS28j?usp=sharing
 
+https://github.com/Americosys/ProyectoTecnicasAvanzadas
 
 
-Marco Scrum
-El proyecto se llevará a cabo mediante el marco de trabajo Scrum, que es actualmente el marco  ágil más popular. Se basa principalmente en la premisa de ejecutar un proyecto en entregas parciales y regulares del producto. El desarrollo del producto se realiza de forma incremental y evolutiva, lo que resulta ideal en entornos dinámicos y cambiantes. 
-Scrum nos permite movernos en la  innovación y además,  aprender a ser un equipo auto-organizados que entregue resultado de alta calidad en tiempos cortos.
-Utilizar Scrum puede ser una gran ventaja competitiva: el equipo sabe lo que tiene que hacer cada día, si algo va mal, lo sabrá en unas semanas. De manera regular el equipo va mejorando y simplificando su manera de trabajar siendo autogestionado, y la comunicación y la adaptación a las diferentes necesidades son máximas, evitando la realización de tareas innecesarias y repetitivas.
-
-"terminal.integrated.shell.windows":
-"C:\Program Files\Git\bin\bash.exe"
