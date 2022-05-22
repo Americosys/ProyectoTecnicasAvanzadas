@@ -1,0 +1,40 @@
+
+git version -> git version 2.36.1.windows.1
+git config --global user.name "tecnicas" -> nombre user para el proyecto
+git config --global user.name -> me devuelve el name
+clear para limpiar la consola
+git config --global user.mail "nunezamericoemilio@gmail.com" -> configurar el mail 
+git config --global user.mail -> me devuelve el mail 
+
+git init -> indica a git que mi carpeta Tecnicas Avanzadas se el repositorio local
+	Initialized empty Git repository in C:/Emilio/Tecnicas Avanzadas/.git/
+	nunez@DESKTOP-SLNL58O MINGW64 /c/Emilio/Tecnicas Avanzadas (master)
+	solo se hace una vez! por proyecto
+	
+	git add . -> pasa todos los archivos a stage
+	
+	git commit -m "subiendo documentacion" -> hacemos commit local con un nombre especifico para ententer que subiendo
+	
+	git log --oneline -> visualizar los commit realizados
+
+git remote add origin https://github.com/Americosys/Tecnicas-Avanzadas.git
+	-> este comando nos vincula el git con el github para luego subir los archivos locales
+
+git branch -M main
+	->
+git push -u origin main
+	->
+
+
+
+	
+git remote add origin https://github.com/Americosys/ProyectoTecnicasAvanzadas.git
+git branch -M main
+git push -u origin main
+
+ .env ](variables de entornos
+ git remote add origin httpp: link de gitbub donde tengo el repositorio
+ git stash
+ git push -uf origin master
+ 
+ 
