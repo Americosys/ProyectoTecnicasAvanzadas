@@ -39,3 +39,142 @@ probar con datos
 Para el 30 de mayo tenemos un alta
 
 15 julio finaliza la cursada 
+----------------------------------------------
+
+Spring data: acceso y modificacion de sistemas de persistencia, como: base de datos relacionales o no
+
+Crear proyecto sprint boot:
+ start.spring.io
+	setear 
+		proyecto -> Maven Proyect
+		lenguage -> Java
+		vesion de sprint boot -> 2.4.3
+		cambiar  nombre del artefacto -> Por el nombre del proyecto
+		agregar las dependencias
+			sprint boot devTools
+			sprint web 
+			Thymeleaf
+			sprint data JDBC
+			PosgreSQL DRIVER
+	GENERAR EL ZIP con toda la info antes seteada
+	descomprimir la carpeta
+	importar el proyecto desde la carpeta descomprimida
+
+## aca saque info
+https://www.youtube.com/watch?v=bVM6MX-dGJI
+https://www.youtube.com/watch?v=7ufmaL1UU0s
+	
+ vscode 
+	command palette
+		spring create maven project 
+			version xxx
+			lenguage Java
+			paquete por default (Group ID) -> com.example
+			artefacto -> asignarle nombre al proyecto
+			JAR
+				Version xxx
+					liberias
+						Spring boot DevTools
+						spring web ....build web....using spring mvc
+						Thymeleaf template Engines
+						spring data JDBC 
+						spring data in sql stores with java persistence API using Spring data hibernate
+						MySQL Driver SQL
+						
+			
+	Elegir carpeta donde guardar proyecto
+
+
+********************** notas ******************
+
+pom.xml -> tiene todas las dependencias
+
+application.properties -> tiene las configuracion 
+
+# aqui indicamos que la base de datos esta local  
+sprint.datasource.url=jdbc:mysql://localhost:3306/instituto_smdl?serverTimezone=UTC
+sprint.datasource.username=root
+# sprint.datasource.password=adminadmin
+sprint.datasource.password=
+sprint.datasource.driver-class-name=com.msql.cj.jdbc.Driver
+
+sprint.jpa.hibernate.ddl-auto=create
+
+
+# sprint.datasource.url=jdbc:mysql://localhost:3306/Americo?currentSchema=instituto_smdl
+# sprint.datasource.username=root
+# sprint.datasource.password=adminadmin
+
+ 
+# ==== connect to mysql ======#
+# spring.jpa.hibernate.ddl-auto=update
+# spring.datasource.url=jdbc:mysql://localhost:3306/mysqltutorial?useSSL=false
+# spring.datasource.username=root
+# spring.datasource.password=
+# spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+# spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
+
+
+opcion 2 - GMT
+	spring.datasource.url=jdbc:mysql://localhost:yourDatabase?serverTimezone=UTC
+	spring.datasource.username=${USERNAME} 
+	spring.datasource.password=${PASSWORD}
+	spring.jpa.hibernate.ddl-auto=create-drop
+	spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+	spring.logging.level.org.hibernate.SQL=debug
+	spring.jpa.show-sql=true
+	
+Opcion 3
+	spring.datasource.url=jdbc:mysql://localhost:yourDatabase?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDataTimeCode=false&serverTimezone=America/Argentina/Buenos_Aires
+	#serverTimezone=UTC
+	spring.datasource.username=${USERNAME} 
+	spring.datasource.password=${PASSWORD}
+	spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+	spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
+	spring.jpa.hibernate.ddl-auto=update 	
+	logging.level.org.hibernate.SQL=debug
+	server.port=${PORT:8080}
+ 
+ *****************************************************
+ setting.json
+ 
+ {
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Program Files (x86)\\MySQL\\Connector J 8.0\\mysql-connector-java-8.0.29.jar"
+    ],
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "connectionInstitutoDB",
+            "database": "instituto_smdl",
+            "username": "sqluser",
+            "password": "password"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "connectionInstitutoDB2",
+            "database": "instituto_smdl",
+            "username": "root",
+            "password": "adminadmin"
+        }
+    ]
+}
+
+xmlns:th="http:/www.thymeleaf.org"
+http://127.0.0.1:5500/
