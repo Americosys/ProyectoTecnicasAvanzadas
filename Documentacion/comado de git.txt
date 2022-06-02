@@ -6,7 +6,7 @@ clear para limpiar la consola
 git config --global user.mail "nunezamericoemilio@gmail.com" -> configurar el mail 
 git config --global user.mail -> me devuelve el mail 
 
-git init -> indica a git que mi carpeta Tecnicas Avanzadas se el repositorio local
+git init -> indica a git que mi carpeta Tecnicas Avanzadas sea el repositorio local
 	Initialized empty Git repository in C:/Emilio/Tecnicas Avanzadas/.git/
 	nunez@DESKTOP-SLNL58O MINGW64 /c/Emilio/Tecnicas Avanzadas (master)
 	solo se hace una vez! por proyecto
@@ -24,8 +24,6 @@ git branch -M main
 	->
 git push -u origin main
 	->
-
-
 
 	
 git remote add origin https://github.com/Americosys/ProyectoTecnicasAvanzadas.git

@@ -2,22 +2,26 @@ package model;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import org.apache.commons.dbcp2.BasicDataSource;
+
+//import org.apache.commons.dbcp2.BasicDataSource;
+
 
 /**
  *
- * @author JorgeLPR
+ * @author 
  */
 public class ConnectionPool {
     
-    private final String DB="persona";
+    private final String DB="instituto_smdl";
     private final String URL="jdbc:mysql://localhost:3306/"+DB+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private final String USER="root";
-    private final String PASS="";
+    private final String USER="sqluser";
+    private final String PASS="password";
     
     private static ConnectionPool dataSource;
+    // objeto que nos permite crear un objeto de conexion standar
     private BasicDataSource basicDataSource=null;
     
+    //Constructor de la Clase
     private ConnectionPool(){
      
         basicDataSource = new BasicDataSource();

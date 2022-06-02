@@ -178,3 +178,103 @@ Opcion 3
 
 xmlns:th="http:/www.thymeleaf.org"
 http://127.0.0.1:5500/
+
+vamos de nuevo jajaja
+me bajo https://spring.io/tools
+
+
+	@Override
+	public List<Usuario> getAllUsuarios() {
+		// TODO Auto-generated method stub
+		//spGetAllUsuario		
+		//List<Usuario> usuarios = usuarioRepo.findAll();
+		List<Usuario> usuarios = usuarioRepo.spGetAllUsuario(null);
+		return usuarios;
+	}
+
+------------------------------- INFO HTML ----------------------------------
+<td>
+	<a> class "btn btn-warning">Editar</a>
+	<a> class "btn btn-danger">Eliminar</a>
+</td>                        
+
+<meta charset="UTF-8"> x <meta charset="ISO-8859-1">
+
+<th>Id Rol</th>
+ <td th:text="${usuario.rol}"></td>
+
+aca te redirecciona al formulario "formAgregarUsuario"
+<a> th:href=@{/newUsuario} class="btn btn-primary"> Agregar</a>
+
+/new = newUsuario
+
+</div class="container mt-4">
+	</div class="col-sm-6">
+		<form th:action="@{/insertUsuario}" th:objeto=${usuario} method="POST">
+			<div class="card"> 
+				<div class="card-header">
+				<h3>Agregar Usuario</h3> 
+				</div>					
+				<div class="card-body">
+					<div class="form-group"
+							<label>DNI</label>
+							<imput th:field=*"{dni}" type="text" class="form-control"/>
+					</div>
+				</div>
+				<div class="card-footer"></div>
+			</div>
+		</form>	 
+	</div>
+</div>
+
+<imput type="submit" value="Guardar" class="btn btn-success">
+
+en el controlador 
+@GetMapping(/newUsuario)
+public String insertUsuario(Model model) {
+	model.addAttribute("usuario", new usuario());
+	return "formAgregarUsuario"
+}
+
+public String guardarUsuario(@Valid Usuario u, Model model) {
+	service.guardarUsuario(u);
+	return "redirect:/GetAllUsuarios"	
+}
+
+
+
+
+
+*********************************** info annotation -----------------------------
+Para que se usan las annotation?
+
+@Controller
+@Service
+@Autowired
+@Override
+@Procedure
+@Column
+@Entity
+@Table
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+@GetMapping
+
+
+
+
+hay que agregar un annotation a la interface servicio?
+
+
+	dni
+	idRol
+	nickname
+	clave
+	nombre
+	fechaNacimiento
+    edad
+    email
+    fechaAlta
+    direccion
+    telefono
+    activo
+    

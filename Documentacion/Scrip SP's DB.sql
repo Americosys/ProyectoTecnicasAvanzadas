@@ -5,7 +5,7 @@ USE Instituto_smdl
 /************************************************************/
 DELIMITER //
 # SP para insertar los roles
-DROP PROCEDURE IF EXISTS spInsertRol;
+#DROP PROCEDURE IF EXISTS spInsertRol;
 CREATE PROCEDURE `spInsertRol` (IN idRol INT, IN rol VARCHAR (50))
 BEGIN
 	 INSERT INTO rol(IdRol,rol) values (IdRol,rol) ;     
@@ -19,7 +19,7 @@ CALL spInsertRol (3, 'Estudiante');
 
 DELIMITER //
 # SP para que me devuelva todos los roles
-DROP PROCEDURE IF EXISTS spGetRoles;
+#DROP PROCEDURE IF EXISTS spGetRoles;
 CREATE PROCEDURE `spGetRoles` ()
 BEGIN
 	 SELECT * FROM rol;     
@@ -31,7 +31,7 @@ CALL spGetRoles();
 
 DELIMITER //
 # SP para eliminar un rol
-DROP PROCEDURE IF EXISTS spDeleteRol;
+#DROP PROCEDURE IF EXISTS spDeleteRol;
 CREATE PROCEDURE `spDeleteRol` (IN idRol INT)
 BEGIN
 	 DELETE FROM rol R WHERE r.idRol = idRol;     
@@ -52,7 +52,7 @@ CALL spGetRoles();
 
 DELIMITER //
 # SP para actualizar descripcion de un rol
-DROP PROCEDURE IF EXISTS spUpdateRol;
+#DROP PROCEDURE IF EXISTS spUpdateRol;
 CREATE PROCEDURE `spUpdateRol` (IN idRol INT,IN rol VARCHAR(50))
 BEGIN
 	 UPDATE rol r SET r.rol = rol 
@@ -74,7 +74,7 @@ CALL spGetRoles();
 /************************************************************/
 DELIMITER //
 # SP para insertar los tipos de evaluaciones
-DROP PROCEDURE IF EXISTS spInsertTipoEvaluacion;
+#DROP PROCEDURE IF EXISTS spInsertTipoEvaluacion;
 CREATE PROCEDURE `spInsertTipoEvaluacion` (IN idTipo INT, IN descripcion VARCHAR (50))
 BEGIN
 	 INSERT INTO tipoevaluacion(IdTipo, descripcion) values (IdTipo, descripcion) ;     
@@ -96,7 +96,7 @@ DELIMITER ;
 
 DELIMITER //
 # SP para que me devuelva todos los tipos de evaluaciones
-DROP PROCEDURE IF EXISTS spGetAllTipoEvaluacion;
+#DROP PROCEDURE IF EXISTS spGetAllTipoEvaluacion;
 CREATE PROCEDURE spGetAllTipoEvaluacion()
 BEGIN
 	 SELECT * FROM tipoevaluacion ;     
@@ -108,7 +108,7 @@ CALL spGetAllTipoEvaluacion();
 
 DELIMITER //
 # SP para eliminar un tipo de evaluacion
-DROP PROCEDURE IF EXISTS spDeleteTipoEvaluacion;
+#DROP PROCEDURE IF EXISTS spDeleteTipoEvaluacion;
 CREATE PROCEDURE `spDeleteTipoEvaluacion` (IN idTipo INT)
 BEGIN
 	 DELETE FROM tipoEvaluacion e WHERE e.idTipo = idTipo;     
@@ -126,7 +126,7 @@ CALL spGetTipoEvaluacion();
 
 DELIMITER //
 # SP para actualizar descripcion de un rol
-DROP PROCEDURE IF EXISTS spUpdateTipoEvaluacion;
+#DROP PROCEDURE IF EXISTS spUpdateTipoEvaluacion;
 CREATE PROCEDURE `spUpdateTipoEvaluacion` (IN idTipo INT, IN descripcion VARCHAR(50))
 BEGIN
 	 UPDATE tipoEvaluacion e SET e.descripcion = descripcion
@@ -148,7 +148,7 @@ CALL spGetTipoEvaluacion();
 /************************************************************/
 DELIMITER //
 # SP para insertar MATERIAS
-DROP PROCEDURE IF EXISTS spInsertMateria;
+#DROP PROCEDURE IF EXISTS spInsertMateria;
 CREATE PROCEDURE `spInsertMateria` (IN idMateria INT, IN nombreMateria VARCHAR(120), IN urlPrograma VARCHAR(250))
 BEGIN
 	INSERT INTO MATERIA(idMateria, nombreMateria, urlPrograma) VALUES (idMateria, nombreMateria, urlPrograma);
@@ -166,7 +166,7 @@ CALL spInsertMateria(7, 'Ingles', 'C:/Materias/Ingles/programa.pdf');
 
 # SP para ver los datos de una materia
 DELIMITER //
-DROP PROCEDURE IF EXISTS spGetMateria ;
+#DROP PROCEDURE IF EXISTS spGetMateria ;
 CREATE PROCEDURE `spGetMateria`(IN idMateria INT)
 BEGIN
 	SELECT * FROM MATERIA m WHERE m.idMateria = idMateria; 
@@ -177,7 +177,7 @@ CALL spGetMateria(1);
 
 # SP para ver todas las materias 
 DELIMITER //
-DROP PROCEDURE IF EXISTS spGetAllMateria ;
+#DROP PROCEDURE IF EXISTS spGetAllMateria ;
 CREATE PROCEDURE `spGetAllMateria`()
 BEGIN
 	SELECT * FROM MATERIA; 
@@ -188,7 +188,7 @@ CALL spGetAllMateria();
 
 # SP para eliminar una materia
 DELIMITER //
-DROP PROCEDURE spDeleteMateria;
+#DROP PROCEDURE spDeleteMateria;
 CREATE PROCEDURE spDeleteMateria(IN idMateria INT)
 BEGIN
 	DELETE FROM MATERIA m 
@@ -232,11 +232,11 @@ CALL spGetMateria(1);
 /**************         SP CURSO      * *********************/
 /************************************************************/
 DELIMITER //
-DROP PROCEDURE `instituto_smdl`.`spInsertRol`;
-CREATE PROCEDURE spInsertCurso(IN IdCurso INT, IN NombreCurso VARCHAR(120), IN cantAlumnos INT, IN cantProfesores INT)
+DROP PROCEDURE spInsertCurso;
+CREATE PROCEDURE spInsertCurso(IN newIdCurso INT, IN newNombreCurso VARCHAR(120), IN newcantAlumnos INT, IN newcantProfesores INT)
 BEGIN
-	INSERT INTO CURSO (IdCurso, NombreCursO, cantAlumnos, cantProfesores) 
-    VALUES (IdCurso, NombreCursO, cantAlumnos, cantProfesores);
+	INSERT INTO CURSO (Idcurso, nombredelcurso, cantalumnos, cantprofesores) 
+    VALUES (newIdCurso, newNombreCurso, newcantAlumnos, newcantProfesores);
 END //
 DELIMITER ;
 
@@ -252,7 +252,7 @@ SELECT * FROM CURSO
 
 # SP para eliminar un curso 
 DELIMITER //
-DROP PROCEDURE `instituto_smdl`.`spDeleteCurso`;
+#DROP PROCEDURE `instituto_smdl`.`spDeleteCurso`;
 CREATE PROCEDURE spDeleteCurso(IN id INT) 
 BEGIN
 	DELETE FROM CURSO WHERE IdCurso =  id; 
@@ -272,7 +272,7 @@ DROP PROCEDURE `instituto_smdl`.`spUpdateCurso`;
 CREATE PROCEDURE spUpdateCurso(IN id INT, IN newNombre VARCHAR(120), IN newCantAlumnos INT, IN newCantProfesores INT)
 BEGIN
 	UPDATE CURSO 
-	SET nombreCurso = IF(newNombre IS NOT NULL, newNombre, nombreCurso), 
+	SET nombredelCurso = IF(newNombre IS NOT NULL, newNombre, nombreCurso), 
 		cantAlumnos = IF(newCantAlumnos IS NOT NULL, newCantAlumnos, cantAlumnos),
         cantProfesores = IF(newCantProfesores IS NOT NULL, newCantProfesores, cantProfesores)
     WHERE idCurso = id;    
@@ -319,7 +319,7 @@ CALL spGetAllCurso(1);
 
 # SP PARA INSERTAR UN PROFESOR
 DELIMITER //
-DROP PROCEDURE `instituto_smdl`.`spInsertProfesor`;
+#DROP PROCEDURE `instituto_smdl`.`spInsertProfesor`;
 CREATE PROCEDURE spInsertProfesor(IN dniProf INT, IN titu VARCHAR(120), IN exper INT)
 BEGIN
 	INSERT INTO PROFESOR (dniProfesor, titulo, experiencia) 
@@ -329,7 +329,7 @@ DELIMITER ;
 
 # SP PARA DEVOLVER DATOS DE UN PROFESOR
 DELIMITER //
-DROP PROCEDURE `instituto_smdl`.`spGetProfesor`;
+#DROP PROCEDURE `instituto_smdl`.`spGetProfesor`;
 CREATE PROCEDURE spGetProfesor(IN dniProf INT)
 BEGIN
 	SELECT * FROM PROFESOR WHERE dniProfesor = dniprof; 
@@ -347,7 +347,7 @@ DELIMITER ;
 
 # SP PARA ACTUALIZAR DATOS DE UN PROFESOR
 DELIMITER //
-DROP PROCEDURE `instituto_smdl`.`spUpdateProfeTituExper`;
+#DROP PROCEDURE `instituto_smdl`.`spUpdateProfeTituExper`;
 CREATE PROCEDURE spUpdateProfeTituExper(IN oldDniProf INT , IN newdniProf INT, IN titu VARCHAR(120), IN exper INT)
 BEGIN
 	UPDATE PROFESOR 
@@ -364,7 +364,7 @@ DELIMITER ;
 
 # SP PARA INSERTAR UN ALUMNO
 DELIMITER //
-DROP PROCEDURE IF EXISTS spInsertAlumno;
+#DROP PROCEDURE IF EXISTS spInsertAlumno;
 CREATE PROCEDURE spInsertAlumno(IN dniAlum INT, IN anio INT, IN newIdCurso INT)
 BEGIN
 	INSERT INTO ALUMNO (dniAlumno, anioEnCurso, idCurso) 
@@ -374,7 +374,7 @@ DELIMITER ;
 
 # SP PARA DEVOLVER DATOS DE UN ALUMNO
 DELIMITER //
-DROP PROCEDURE IF EXISTS spGetAlumno;
+#DROP PROCEDURE IF EXISTS spGetAlumno;
 CREATE PROCEDURE spGetAlumno(IN dniAlum INT)
 BEGIN
 	SELECT * FROM ALUMNO WHERE dniAlumno = dniAlum; 
@@ -383,7 +383,7 @@ DELIMITER ;
 
 # SP PARA DEVOLVER TODOS LOS ALUMNOS
 DELIMITER //
-DROP PROCEDURE IF EXISTS spGetAllAlumno;
+#DROP PROCEDURE IF EXISTS spGetAllAlumno;
 CREATE PROCEDURE spGetAllAlumno()
 BEGIN
 	SELECT * FROM ALUMNO; 
@@ -392,7 +392,7 @@ DELIMITER ;
 
 # SP PARA ACTUALIZAR DATOS DE UN ALUMNO
 DELIMITER //
-DROP PROCEDURE IF EXISTS spUpdateAlumAnioCurso;
+#DROP PROCEDURE IF EXISTS spUpdateAlumAnioCurso;
 CREATE PROCEDURE spUpdateAlumAnioCurso(IN oldDniAlum INT , IN newDniAlum INT, IN newAnio INT, IN newCurso INT)
 BEGIN
 	UPDATE ALUMNO 
@@ -408,7 +408,7 @@ DELIMITER ;
 /************************************************************/
 # SP PARA INSERTAR UN DIRECTIVO
 DELIMITER //
-DROP PROCEDURE `instituto_smdl`.`spInsertDirectivo`;
+#DROP PROCEDURE `instituto_smdl`.`spInsertDirectivo`;
 CREATE PROCEDURE spInsertDirectivo(IN dniDire INT, IN cargo VARCHAR(120))
 BEGIN
 	INSERT INTO DIRECTIVO (dniDirectivo, cargo) 
@@ -418,7 +418,7 @@ DELIMITER ;
 
 # SP PARA DEVOLVER DATOS DE UN DIRECTIVO
 DELIMITER //
-DROP PROCEDURE `instituto_smdl`.`spGetDirectivo`;
+#DROP PROCEDURE `instituto_smdl`.`spGetDirectivo`;
 CREATE PROCEDURE spGetDirectivo(IN dniDire INT)
 BEGIN
 	SELECT * FROM DIRECTIVO WHERE dniDirectivo = dniDire; 
@@ -427,7 +427,7 @@ DELIMITER ;
 
 # SP PARA DEVOLVER TODOS LOS DIRECTIVO
 DELIMITER //
-DROP PROCEDURE `instituto_smdl`.`spGetAllDirectivo`;
+#DROP PROCEDURE `instituto_smdl`.`spGetAllDirectivo`;
 CREATE PROCEDURE spGetAllDirectivo()
 BEGIN
 	SELECT * FROM DIRECTIVO; 
@@ -436,7 +436,7 @@ DELIMITER ;
 
 # SP PARA ACTUALIZAR DATOS DE UN DIRECTIVO
 DELIMITER //
-DROP PROCEDURE `instituto_smdl`.`spUpdateProfeTituExper`;
+#DROP PROCEDURE `instituto_smdl`.`spUpdateProfeTituExper`;
 CREATE PROCEDURE spUpdateDireCargo(IN oldDniDire INT , IN newDniDire INT, IN newCargo VARCHAR(120))
 BEGIN
 	UPDATE DIRECTIVO 
@@ -461,7 +461,7 @@ BEGIN
 	IF newIdRol = 1 
 		THEN 
 			BEGIN
-				INSERT INTO USUARIO (dni, idRol, nickname, clave, nombre, fechaNacimiento, edad, email, direccion, telefono)
+				INSERT INTO USUARIO (dni, idRol, nickname, clave, nombre, nacimiento, edad, email, direccion, telefono)
 							 VALUES (newdni, newidRol, newNickname, newClave, newNombre, newFechaNacimiento, newEdad, newEmail, newDireccion, newTelefono);
 				CALL spInsertDirectivo(newDni, cargoDire);   
 			END;
@@ -469,14 +469,14 @@ BEGIN
     ELSEIF newIdRol = 2 
 			THEN 
 				BEGIN					
-					INSERT INTO USUARIO (dni, idRol, nickname, clave, nombre, fechaNacimiento, edad, email, direccion, telefono)
+					INSERT INTO USUARIO (dni, idRol, nickname, clave, nombre, nacimiento, edad, email, direccion, telefono)
 								VALUES (newDni, newidRol, newNickname, newClave, newNombre, newFechaNacimiento, newEdad, newEmail, newDireccion, newTelefono);
 					CALL spInsertProfesor(newDni, tituProfe, experProfe);                    
                 END;
 		# INGRESO A UN ALUMNO #newIdRol = 3
 		ELSE 
             BEGIN
-				INSERT INTO USUARIO (dni, idRol, nickname, clave, nombre, fechaNacimiento, edad, email, direccion, telefono)
+				INSERT INTO USUARIO (dni, idRol, nickname, clave, nombre, nacimiento, edad, email, direccion, telefono)
 							 VALUES (newDni, newidRol, newNickname, newClave, newNombre, newFechaNacimiento, newEdad, newEmail, newDireccion, newTelefono);
 				CALL spInsertAlumno(newDni, AnioAlum, cursoAlum);                
             END;          
@@ -492,7 +492,7 @@ CALL spInsertUsuario(25772972, 3, 'nickname3', 'clave1234', 'Emilio3','1977-05-1
 
 # sp para eliminar logicamente un usuario
 DELIMITER //
-DROP PROCEDURE IF EXISTS spDeleteUsuario;
+#DROP PROCEDURE IF EXISTS spDeleteUsuario;
 CREATE PROCEDURE spDeleteUsuario(IN deleteDni INT)      
 BEGIN
 	
@@ -505,7 +505,7 @@ DELIMITER ;
 
 # sp para Activar logicamente un usuario
 DELIMITER //
-DROP PROCEDURE IF EXISTS spActivarUsuario;
+#DROP PROCEDURE IF EXISTS spActivarUsuario;
 CREATE PROCEDURE spActivarUsuario(IN deleteDni INT)      
 BEGIN
 	
@@ -523,7 +523,7 @@ Call spActivarUsuario (25772953);
 # Modificar datos de un usuario
 # SP para insertar un usuario
 DELIMITER //
-DROP PROCEDURE IF EXISTS spUpdateUsuario;
+#DROP PROCEDURE IF EXISTS spUpdateUsuario;
 CREATE PROCEDURE spUpdateUsuario(IN oldDni INT, IN newIdRol INT , IN newNickname VARCHAR(50), IN newClave VARCHAR(50), IN newNombre VARCHAR(120), 
 								 IN newfechaNacimiento DATE, IN newEdad INT, IN newEmail VARCHAR(120), IN newDireccion VARCHAR(120), IN newTelefono VARCHAR(50),
                                  IN cargoDire VARCHAR(120),  IN AnioAlum INT, IN cursoAlum INT, IN tituProfe VARCHAR(120), IN experProfe INT)                 
@@ -541,7 +541,7 @@ BEGIN
         SET nickname = IF(newNickname IS NOT NULL, newNickname, nickname),
             clave = IF(newClave IS NOT NULL, newClave, clave),
             nombre = IF(newNombre IS NOT NULL, newNombre, nombre),
-            fechaNacimiento = IF(newfechaNacimiento IS NOT NULL, newfechaNacimiento, fechaNacimiento),
+            Nacimiento = IF(newfechaNacimiento IS NOT NULL, newfechaNacimiento, fechaNacimiento),
             edad = IF(newEdad IS NOT NULL, newEdad, edad),
             email = IF(newEmail IS NOT NULL, newEmail, email),
             direccion = IF(newDireccion IS NOT NULL, newDireccion, direccion),
@@ -593,7 +593,7 @@ DELIMITER //
 CREATE PROCEDURE spGetAllUsuarioRol(IN rol INT)      
 BEGIN	
 	SELECT * FROM USUARIO
-    WHERE idRol = rol;
+    WHERE idrol = rol;
 END //
 DELIMITER ;                        
                                 
@@ -602,7 +602,7 @@ DELIMITER ;
 /************************************************************/
 # sp insertar un registro 
 DELIMITER //
-DROP PROCEDURE IF EXISTS spInsertCursoMateriaProfesor;
+#DROP PROCEDURE IF EXISTS spInsertCursoMateriaProfesor;
 CREATE PROCEDURE spInsertCursoMateriaProfesor(IN curso INT, IN materia INT, IN profesor INT)      
 BEGIN	
 	INSERT INTO cursoMateriaProfesor (idCurso, idMateria, dniProfesor)
@@ -612,7 +612,7 @@ DELIMITER ;
 
 # sp modificar un registro
 DELIMITER //
-DROP PROCEDURE IF EXISTS spUpDateCursoMateriaProfesor;
+#DROP PROCEDURE IF EXISTS spUpDateCursoMateriaProfesor;
 CREATE PROCEDURE spUpDateCursoMateriaProfesor(IN idRegistro INT, IN curso INT, IN materia INT, IN profesor INT)      
 BEGIN	
 	UPDATE cursoMateriaProfesor
@@ -625,7 +625,7 @@ DELIMITER ;
 
 # sp eliminar un registro
 DELIMITER //
-DROP PROCEDURE IF EXISTS spEliminarCursoMateriaProfesor;
+#DROP PROCEDURE IF EXISTS spEliminarCursoMateriaProfesor;
 CREATE PROCEDURE spEliminarCursoMateriaProfesor(IN idRegistro INT)      
 BEGIN	
 	DELETE FROM cursoMateriaProfesor where id= idRegistro;
@@ -643,7 +643,7 @@ DELIMITER ;
 
 # sp devuelve todos los datos de la table
 DELIMITER //
-DROP PROCEDURE IF EXISTS spGetAllCursoMateriaProfesor;
+#DROP PROCEDURE IF EXISTS spGetAllCursoMateriaProfesor;
 CREATE PROCEDURE spGetAllCursoMateriaProfesor()      
 BEGIN	
 	SELECT * FROM cursoMateriaProfesor;
@@ -655,7 +655,7 @@ DELIMITER ;
 /************************************************************/
 # sp insertar PROFESOR EVALUACION
 DELIMITER //
-DROP PROCEDURE IF EXISTS spInsertProfesorEvaluacion;
+#DROP PROCEDURE IF EXISTS spInsertProfesorEvaluacion;
 CREATE PROCEDURE spInsertProfesorEvaluacion(IN evaluacion INT, IN tipo INT, IN curso INT, IN materia INT, IN profesor INT,
 											IN urlEvaluacionCarga2 VARCHAR(250), IN urlEvaluacionDescarga2 VARCHAR(250), IN nombreEvaluacion2 VARCHAR(120))      
 BEGIN	
@@ -670,7 +670,7 @@ SELECT * FROM ProfesorEvaluacion;
 
 # sp modificar un registro ProfesorEvaluacion
 DELIMITER //
-DROP PROCEDURE IF EXISTS spUpDateProfesorEvaluacion;
+#DROP PROCEDURE IF EXISTS spUpDateProfesorEvaluacion;
 CREATE PROCEDURE spUpDateProfesorEvaluacion(IN upDateEvaluacion INT, IN tipo INT, IN curso INT, IN materia INT, IN profesor INT,
 											IN urlEvaluacionCarga2 VARCHAR(250), IN urlEvaluacionDescarga2 VARCHAR(250), IN nombreEvaluacion2 VARCHAR(120))     
 BEGIN	
@@ -688,7 +688,7 @@ DELIMITER ;
 
 # sp eliminar un registro
 DELIMITER //
-DROP PROCEDURE IF EXISTS spEliminarProfesorEvaluacion;
+#DROP PROCEDURE IF EXISTS spEliminarProfesorEvaluacion;
 CREATE PROCEDURE spEliminarProfesorEvaluacion(IN idEvaluacion2 INT)      
 BEGIN	
 	DELETE FROM ProfesorEvaluacion WHERE idEvaluacion = idEvaluacion2;
@@ -697,7 +697,7 @@ DELIMITER ;
 
 # sp devuelve datos de un registro
 DELIMITER //
-DROP PROCEDURE IF EXISTS spGetCursoMateriaProfesor;
+#DROP PROCEDURE IF EXISTS spGetCursoMateriaProfesor;
 CREATE PROCEDURE spGetProfesorEvaluacion(IN idEvaluacion2 INT)      
 BEGIN	
 	SELECT * FROM ProfesorEvaluacion where  idEvaluacion = idEvaluacion2;
@@ -706,7 +706,7 @@ DELIMITER ;
 
 # sp devuelve todos los datos de ProfesorEvaluacion
 DELIMITER //
-DROP PROCEDURE IF EXISTS spGetAllProfesorEvaluacion;
+#DROP PROCEDURE IF EXISTS spGetAllProfesorEvaluacion;
 CREATE PROCEDURE spGetAllProfesorEvaluacion()      
 BEGIN	
 	SELECT * FROM ProfesorEvaluacion;
@@ -718,7 +718,7 @@ DELIMITER ;
 /************************************************************/
 # sp insertar PROFESOR EVALUACION
 DELIMITER //
-DROP PROCEDURE IF EXISTS spInsertAlumnoEvaluacion;
+#DROP PROCEDURE IF EXISTS spInsertAlumnoEvaluacion;
 CREATE PROCEDURE spInsertAlumnoEvaluacion(IN dniAlumno2 INT, IN idEvaluacion2 INT, IN notaEvaluacio2 INT)      
 BEGIN	
 	INSERT INTO AlumnoEvaluacion (dniAlumno, idEvaluacion, notaEvaluacio) 
@@ -728,7 +728,7 @@ DELIMITER ;
 
 # sp modificar un registro AlumnoEvaluacion
 DELIMITER //
-DROP PROCEDURE IF EXISTS spUpDateAlumnoEvaluacion;
+#DROP PROCEDURE IF EXISTS spUpDateAlumnoEvaluacion;
 CREATE PROCEDURE spUpDateAlumnoEvaluacion(IN idAlumnoEvaluacion2 INT, IN dniAlumno2 INT, IN idEvaluacion2 INT, IN notaEvaluacio2 INT)    
 BEGIN	
 	UPDATE AlumnoEvaluacion
@@ -741,7 +741,7 @@ DELIMITER ;
 
 # sp eliminar un registro
 DELIMITER //
-DROP PROCEDURE IF EXISTS spEliminarAlumnoEvaluacion;
+#DROP PROCEDURE IF EXISTS spEliminarAlumnoEvaluacion;
 CREATE PROCEDURE spEliminarAlumnoEvaluacion(IN idAlumnoEvaluacion2 INT)      
 BEGIN	
 	DELETE FROM AlumnoEvaluacion WHERE idAlumnoEvaluacion = idAlumnoEvaluacion2;
@@ -750,7 +750,7 @@ DELIMITER ;
 
 # sp devuelve datos de un registro
 DELIMITER //
-DROP PROCEDURE IF EXISTS spGetAlumnoEvaluacion;
+#DROP PROCEDURE IF EXISTS spGetAlumnoEvaluacion;
 CREATE PROCEDURE spGetAlumnoEvaluacion(IN idAlumnoEvaluacion2 INT)      
 BEGIN	
 	SELECT * FROM AlumnoEvaluacion where  idAlumnoEvaluacion = idAlumnoEvaluacion2;
@@ -759,7 +759,7 @@ DELIMITER ;
 
 # sp devuelve todos los datos de AlumnoEvaluacion
 DELIMITER //
-DROP PROCEDURE IF EXISTS spGetAllAlumnoEvaluacion;
+#DROP PROCEDURE IF EXISTS spGetAllAlumnoEvaluacion;
 CREATE PROCEDURE spGetAllAlumnoEvaluacion()      
 BEGIN	
 	SELECT * FROM AlumnoEvaluacion;
