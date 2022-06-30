@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Interfaz Directivo</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/miEstilo.css" />
+        <!--https://fontawesome.com/-->        
+        <link href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" /> 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Instituto Santa Maria de Lourdes</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">            
+                    <div class="navbar-nav ms-auto"> 
+                        <span class="navbar-brand mb-0">Hola!!</span>                          
+                        <span class="navbar-brand mb-0">Nickname!!</span>                          
+                        <span class="navbar-brand mb-0"> <i class="bi bi-person-circle"></i></span>                         
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container justify-content-center my-2">                        
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> 
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="InicioInterfazDirectivo#">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Integrantes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Cursos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Materias</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Eventos</a>                            
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Reportes</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="col-12 d-flex bg-white justify-content-center"> 
+                <form th:action="@{/insertUsuario}" th:objet=${Usuario} method="POST" class="row g-3">
+                    <div class="card"> 
+                        <div class="card-header">
+                            <h3>Datos del integrante del Instituto</h3> 
+                        </div>					
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-5"> 
+                                    <div class="form-group"
+                                        <label>Nombre y Apellido</label>
+                                        <input th:field="*{nombre}" name="nombre" type="String" class="form-control"/>                                            
+                                    </div>
+                                </div>
+                                <div class="col-md-1"> 
+                                    <div class="form-group"                                            
+                                        <label>Edad</label>
+                                        <input th:field="*{edad}" name="edad" type="int" class="form-control"/>
+                                    </div>
+                                </div> <!--  
+                                <div class="col-md-3"> 
+                                    <div class="form-group"                                            
+                                        <label>Buscar por DNI</label>
+                                        <input th:field="*{dni}" name="dni" type="int" class="form-control"/>
+                                    </div>
+                                </div> 
+                                <div class="col-md-3 d-flex align-items-end">                                         
+                                        <button type="submit" value="Buscar" class="btn btn-success">
+                                        <i class="bi bi-search" style="font-size: 1.2rem"></i> Buscar</button>  
+                                </div> -->                                     
+                            </div>                                                               
+                            <div class="row g-3 my-1">
+                                <div class="col-md-3">     
+                                    <div class="form-group"
+                                        <label>Nickname</label>
+                                        <input th:field="*{nickname}" name="nickname" type="String" class="form-control"/> 
+                                    </div>
+                                </div>   
+                                <div class="col-md-3">
+                                    <div class="form-group"
+                                        <label>Clave</label>
+                                        <input th:field="*{clave}" name="clave" type="String" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group"
+                                        <label>Fecha de Nacimiento</label>
+                                        <input th:field="*{nacimiento}" name="nacimiento" type="Date" class="form-control"/>
+                                    </div>
+                                </div> <!--
+                                <div class="col-md-2">
+                                    <div class="form-group"
+                                        <label>Fecha de Alta</label>
+                                        <input th:field="*{alta}" name="alta" type="Date" class="form-control"/>
+                                    </div> 
+                                </div>  
+                                -->                              
+                            </div>
+                            <div class="row g-3 my-1">
+                                <div class="col-md-2">
+                                    <div class="form-group"                                   
+                                        <label>DNI</label>
+                                        <input  th:field="*{dni}" name="dni" type="int" class="form-control"/>
+                                    </div>
+                                </div>    
+                                <div class="col-md-4">
+                                    <div class="form-group"
+                                        <label>Mail</label>
+                                        <input th:field="*{mail}" name="email" type="String" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group"
+                                        <label>Telefono</label>
+                                        <input th:field="*{telefono}" name="telefono" type="String" class="form-control"/>
+                                    </div>
+                                </div>                                    
+                                <div class="col-md-2">
+                                    <div class="form-group"
+                                        <label>Rol</label>
+                                        <input th:field="*{idrol}" name="idrol" type="int" class="form-control"/>
+                                    </div>	                                        
+                                </div>                                          
+                                <div class="col-md-1">                                    
+                                    <div class="form-check my-4">
+                                        <label class="form-check-label" for="autoSizingCheck">Activo</label>
+                                        <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                                    </div>                                        
+                                </div>
+                            </div>
+                            <div class="row g-3 my-1">
+                                <div class="col-md-6">
+                                    <div class="form-group"
+                                        <label>Direccion</label>
+                                        <input th:field="*{direccion}" name="direccion" type="String" class="form-control"/>
+                                    </div>                                        
+                                </div>
+                            </div>
+                            <div class="row g-3 my-1">
+                                <div class="col-md-2">
+                                    <div class="form-group"
+                                        <label>Año en Curso Alumno</label>
+                                        <input th:field="*{anioencurso}" name="anioencurso" type="int" class="form-control"/>
+                                    </div>    
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group"
+                                        <label>Id del Curso Alumno</label>
+                                        <input th:field="*{idcurso}" name="idcurso" type="int" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">                                     
+                                    <div class="form-group"
+                                        <label>Titulo Profesor</label>
+                                        <input th:field="*{titulo}" name="titulo" type="String" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group"
+                                        <label>Años Experiencia Profe</label>
+                                        <input th:field="*{experiencia}" name="experiencia" type="int" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group"
+                                        <label>Cargo Directivo</label>
+                                        <input th:field="*{cargodirectivo}" name="cargo" type="String" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>					
+                        <div class="card-footer">                          
+                            <button onclick="agregar()" value="Agregar" class="btn btn-primary">
+                                <i class="bi bi-plus-circle-fill" style="font-size: 1.2rem"></i> Agregar2</button>                      	
+                            <button type="submit" value="Editar" class="btn btn-warning">
+                                <i class="bi bi-pen-fill" style="font-size: 1.2rem"></i> Editar</button>                       	
+                            <button type="submit" value="Eliminar" class="btn btn-danger">
+                                <i class="bi bi-trash3-fill" style="font-size: 1.2rem"></i> Eliminar</button>                                             	                            
+                        </div>
+                    </div>				
+                </form>	 
+            </div>
+		</div>
+
+        <!-- Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </body>
+    
+    <script>
+    	function agregar(){
+			alert("Hola 3");	
+			document.datosusuarios.action="/insertUsuario";
+			document.datosusuarios.submit();
+		}     
+  	</script>   
+        
+</html>

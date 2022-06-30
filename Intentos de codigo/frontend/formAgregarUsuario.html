@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">    
+    <title>Agregar Nuevo Usuario</title>
+   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">-->
+   <!-- Bootstrap -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+</head>
+<body>
+    <dir class= "container mt-4"> 
+     	<div class="col-sm-6">
+			<form th:action="@{/insertUsuario}" th:objet=${Usuario} method="POST">
+				<div class="card"> 
+					<div class="card-header">
+						<h3>Formulario Agregar Nuevo Usuario</h3> 
+					</div>					
+					<div class="card-body">
+						<div class="form-group"
+							<label>DNI</label>
+							<input  th:field="*{dni}" name="dni" type="int" class="form-control"/>
+						</div>
+					<div class="form-group"
+							<label>Id Rol</label>
+							<input th:field="*{idrol}" name="idrol" type="int" class="form-control"/>
+						</div>	
+						<div class="form-group"
+							<label>Nickname</label>
+							 <input th:field="*{nickname}" name="nickname" type="String" class="form-control"/> 
+						</div>
+						<div class="form-group"
+							<label>Password</label>
+							<input th:field="*{clave}" name="clave" type="String" class="form-control"/>
+						</div>
+						<div class="form-group"
+							<label>Nombres</label>
+							<input th:field="*{nombre}" name="nombre" type="String" class="form-control"/>
+						</div>
+						<div class="form-group"
+							<label>Fecha de Nacimiento</label>
+							<input th:field="*{nacimiento}" name="nacimiento" type="Date" class="form-control"/>
+						</div>
+						<div class="form-group"
+							<label>Edad</label>
+							<input th:field="*{edad}" name="edad" type="int" class="form-control"/>
+						</div>						
+						<div class="form-group"
+							<label>Mail</label>
+							<input th:field="*{mail}" name="email" type="String" class="form-control"/>
+						</div>
+						<div class="form-group"
+							<label>Direccion</label>
+							<input th:field="*{direccion}" name="direccion" type="String" class="form-control"/>
+						</div>
+						<div class="form-group"
+							<label>Telefono</label>
+							<input th:field="*{telefono}" name="telefono" type="String" class="form-control"/>
+						</div>
+<!--						<div class="form-group"
+							<label>Cargo Directivo</label>
+							<input th:field="*{cargodirectivo}" name="cargo" type="String" class="form-control"/>
+						</div>
+						<div class="form-group"
+							<label>Año en Curso Alumno</label>
+							<input th:field="*{anioencurso}" name="anioencurso" type="int" class="form-control"/>
+						</div>
+						<div class="form-group"
+							<label>Id del Curso Alumno</label>
+							<input th:field="*{idcurso}" name="idcurso" type="int" class="form-control"/>
+						</div>
+						<div class="form-group"
+							<label>Titulo Profesor</label>
+							<input th:field="*{titulo}" name="titulo" type="String" class="form-control"/>
+						</div>
+						<div class="form-group"
+							<label>Años Experiencia Profe</label>
+							<input th:field="*{experiencia}" name="experiencia" type="int" class="form-control"/>
+						</div>	
+-->
+					</div>					
+					<div class="card-footer">
+						<input type="submit" value="Guardar" class="btn btn-success">						
+					</div>
+				</div>				
+			</form>	 
+		</div>
+    </dir>
+</body>
+</html>
