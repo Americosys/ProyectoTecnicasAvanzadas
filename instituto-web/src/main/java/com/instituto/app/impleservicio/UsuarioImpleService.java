@@ -17,6 +17,7 @@ public class UsuarioImpleService implements UsuarioService{
 	@Autowired
 	private UsuarioRepositorio usuarioRepo;
 	
+	// baja logica
 	@Override
 	@Transactional()
 	public void deleteUsuario(int dni) {
@@ -24,6 +25,7 @@ public class UsuarioImpleService implements UsuarioService{
 		usuarioRepo.spDeleteUsuario(dni);
 	}
 	
+	// devuelve todos los usuarios
 	@Override
 	@Transactional()
 	public List<Usuario> getAllUsuarios() {
@@ -32,6 +34,7 @@ public class UsuarioImpleService implements UsuarioService{
 		return usuarios;
 	}
 
+	// devuelve un usuario
 	@Override
 	@Transactional()
 	public Usuario getUsuario(int dni) {
@@ -40,6 +43,7 @@ public class UsuarioImpleService implements UsuarioService{
 		  return usuario;		
 	}
 	
+	// agrega un usuario
 	@Override
 	@Transactional()
 	public void agregarUsuario(Usuario u){
@@ -51,6 +55,7 @@ public class UsuarioImpleService implements UsuarioService{
 			  					  u.getTitulo(),u.getExperiencia());
 	} 			
 	
+	// actualiza un usuario
 	@Override
 	@Transactional()
 	public void updateUsuario(Usuario u) {
@@ -63,6 +68,7 @@ public class UsuarioImpleService implements UsuarioService{
 			  					  u.getTitulo(),u.getExperiencia());
 	}
 
+	// devuelve una lista de usuarios que pertenecen a un curso
 	@Override
 	@Transactional()
 	public List<Usuario> getAlumnosCurso(int idcurso) {
@@ -72,6 +78,7 @@ public class UsuarioImpleService implements UsuarioService{
 		return alumnos;
 	}
 
+	// actualiza alumno de un curso
 	@Override
 	@Transactional()
 	public void actualizarCursoAlumno(int dni, int idcurso) {

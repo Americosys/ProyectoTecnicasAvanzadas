@@ -18,13 +18,14 @@ public class CursoImpleService implements CursoService{
 	@Autowired
 	private CursoRepositorio cursoRepo;
 	
+	// agrega un curso	
 	@Override
 	@Transactional()
 	public void agregarCurso(Curso c) {
 		// TODO Auto-generated method stub
 		cursoRepo.spInsertCurso(c.getIdcurso(), c.getNombre(), c.getAnio());
 	}
-
+    // devuelve una lista de cursos
 	@Override
 	@Transactional()
 	public List<Curso> getAllCursos() {
@@ -32,7 +33,7 @@ public class CursoImpleService implements CursoService{
 		List<Curso> cursos = cursoRepo.spGetAllCursos();
 		return cursos;
 	}
-
+    // devuelve info de un curso
 	@Override
 	@Transactional()
 	public Curso getCurso(int idcurso) {
@@ -41,6 +42,7 @@ public class CursoImpleService implements CursoService{
 		return curso;
 	}
 
+    // elimina un curso
 	@Override
 	@Transactional()
 	public void deleteCurso(int idcurso) {
@@ -48,6 +50,7 @@ public class CursoImpleService implements CursoService{
 		cursoRepo.spDeleteCurso(idcurso);
 	}
 
+    // actualiza un curso
 	@Override
 	@Transactional()
 	public void updateCurso(Curso c) {
@@ -56,6 +59,7 @@ public class CursoImpleService implements CursoService{
 		
 	}
 
+    // devuelve todos los alumnos de un curso
 	@Override
 	@Transactional()
 	public List<Usuario> getAlumnosCurso(int idcurso) {
@@ -65,6 +69,7 @@ public class CursoImpleService implements CursoService{
 
 	}
 
+    // incrementa la cantidad de profesor con su materia de un curso 
 	@Override
 	@Transactional()
 	public void incrementarProfeMateria(int idcurso) {
@@ -72,13 +77,15 @@ public class CursoImpleService implements CursoService{
 		cursoRepo.spincrementarProfeMateria(idcurso);
 	}
 
+    // decrementa la cantidad de profesor con su materia de un curso	
 	@Override
 	@Transactional()
 	public void decrementarProfeMateria(int idcurso) {
 		// TODO Auto-generated method stub
 		cursoRepo.spdecrementarProfeMateria(idcurso);
 	}
-
+	
+    // incrementa la cantidad de alunos de un curso
 	@Override
 	@Transactional()
 	public void incrementarAlumnoCurso(int idcurso) {
@@ -86,6 +93,7 @@ public class CursoImpleService implements CursoService{
 		cursoRepo.spincrementarAlumnoCurso(idcurso);
 	}
 
+    // decrementa la cantidad de alunos de un curso
 	@Override
 	@Transactional()
 	public void decrementarAlumnoCurso(int idcurso) {

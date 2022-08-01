@@ -21,6 +21,8 @@ public class LoginImpleService implements LoginService{
 	@Autowired
 	private LoginRepositorio loginRepositorio;
 	
+	// devuelve el resultado de la consulta, es decir, si los datos son correcto, me devuelve en el string
+	// el rol, caso contrario me da info usuario no existente o datos incorrectos.
 	@Override
 	@Transactional()
 	public Map<String, Integer> conectar(int dni, String clave) {

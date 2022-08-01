@@ -20,11 +20,13 @@ public class MateriaController {
 	@Autowired
 	private MateriaService materiaService;
 	
+	/* redireccionar a la pagina de materias*/
 	@GetMapping("/InterfazMateria")
 	public String interfazMateria(){	
 		return "interfazMateria";
 	}
-
+	
+    /* devulve todas las materias y las muestra en materias.html*/
 	@GetMapping("/GetAllMaterias")
 	public String materias(Model model){		
 		List<Materia> materias = materiaService.getAllMateria();
@@ -32,12 +34,14 @@ public class MateriaController {
 		return "materias";
 	}
 	
+	/* Agrega una materia, busca todas las materias y las muestra en materias.html*/
 	@PostMapping("/insertMateria")
 	public String guardarMateria(Materia m) {
 		materiaService.insertMateria(m);
 		return "redirect:/GetAllMaterias";	
 	}	
 	
+	/* busca los datos una materia y redirecciona a la pagina para ser editada*/
 	@GetMapping("/getMateria/{idmateria}")
 	public String getMateria(@PathVariable int idmateria, Model model){
 		Materia materia = materiaService.getMateria(idmateria);
@@ -45,7 +49,7 @@ public class MateriaController {
  		return "interfazMateriaEdit";
 	} 
 
-	
+	/* busca los datos una materia y redirecciona a la pagina para ser editada*/	
 	@RequestMapping("/getMateriaId")
 	public String getMateriaId(Model model, @Param("buscarPorID") int buscarPorID){
 		Materia materia = materiaService.getMateria(buscarPorID);
@@ -54,13 +58,14 @@ public class MateriaController {
 		return "interfazMateriaEdit";
 	} 	
 	
-	
+	/* actualizo una materia y busca al resto para mostrar en materias.html*/
 	@PostMapping("/updateMateria")
 	public String updateMateria(Materia m){		
 		materiaService.updateMateria(m);
 		return "redirect:/GetAllMaterias";
 	}	
 	
+	/* Elimino a una materia y busca al resto para mostrar en materias.html*/
 	@GetMapping("/deleteMateria/{idmateria}")
 	public String deleteMateria(@PathVariable int idmateria){		
 		materiaService.deleteMateria(idmateria);

@@ -15,7 +15,7 @@ public class CursomateriaprofesorImpleService implements CursomateriaprofesorSer
 
 	@Autowired
 	private CursomateriaprofesorRepositorio cursoMateProfeRepo;
-	
+	// inserta un profesor con su materia a un curso
 	@Override
 	@Transactional()
 	public void insertCursoMateProfe(Cursomateriaprofesor cmp) {
@@ -23,7 +23,7 @@ public class CursomateriaprofesorImpleService implements CursomateriaprofesorSer
 		cursoMateProfeRepo.spInsertCursoMateriaProfesor(cmp.getIdcurso(),cmp.getIdmateria(), cmp.getDniprofesor() );
 	
 	}
-
+	// devuelve una lista de profesores con su materias de un curso
 	@Override
 	@Transactional()
 	public List<Cursomateriaprofesor> getDetalleCurso(int idcurso) {
@@ -32,14 +32,15 @@ public class CursomateriaprofesorImpleService implements CursomateriaprofesorSer
 			
 		return infCMD;
 	}
-
+    // elimina un registro de los profesores con su materias que pertenecen a un curso
 	@Override
 	@Transactional()
 	public void deleteRegistroCurso(int id) {
 		// TODO Auto-generated method stub
 		cursoMateProfeRepo.spDeleteCursoMateriaProfesor(id);
 	}
-
+	
+    // actualza curso materia profesor de un curso pero de un registro especifico  
 	@Override
 	@Transactional()
 	public void updateRegistroCurso(Cursomateriaprofesor cmp) {
@@ -47,6 +48,7 @@ public class CursomateriaprofesorImpleService implements CursomateriaprofesorSer
 		cursoMateProfeRepo.spUpDateCursoMateriaProfesor(cmp.getId(), cmp.getIdcurso(),cmp.getIdmateria(), cmp.getDniprofesor());
 	}
 
+    // devuelve info de id de un registro de cursos
 	@Override
 	@Transactional()
 	public int getIdCursoRegistro(int id) {

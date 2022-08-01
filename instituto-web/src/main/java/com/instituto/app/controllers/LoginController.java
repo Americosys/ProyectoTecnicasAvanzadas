@@ -31,7 +31,8 @@ public class LoginController {
 	}	
 	
 	
-	
+	/* Se conecta a la app, y dependiendo de los datos que ingresa, en pantalla se muetra el mensaje
+	 * y redireccionar a la pagina dependiendo del rol del usuario a loguearse*/
 	@PostMapping("/conectar")
 	public String conectar(Model model, DatosLogin u, HttpSession session){
 //	public String conectar(Model model, DatosLogin u){	
@@ -53,7 +54,7 @@ public class LoginController {
 		
 		
 		session.setAttribute("nickname", usuario.getNickname());
-		
+		/// Dependiendo del rol te manda a una pagina o a otra 
 		if (rol == 0)
 		{
 			model.addAttribute("mensaje",mensaje);

@@ -29,7 +29,11 @@ public class CursoMateriaProfesorController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-		
+	
+	/* Inserta un profesor y su materia a ser dada en un curos
+	 * incrementa la cantidad
+	 * y muestra informacion del curso, es decir, lo que tenia mas lo que acaba de ingresar
+	 * redireccionando a infoCurso.html */
 	@RequestMapping("/InsertCursoMateriaProfesor")
 	public String insertMateriaProfesorAlCurso(Model model, Cursomateriaprofesor cmp, 
 			@Param("idmateria") int idmateria,  @Param("dniprofesor") int dniprofesor) {
@@ -46,7 +50,10 @@ public class CursoMateriaProfesorController {
 		
 	}
 
-	
+	/* Inserta un alumno a un curos
+	 * incrementa la cantidad
+	 * y muestra los alunos que pertenecen al curso
+	 * redireccionando a usuarios.html */
 	@RequestMapping("/agregarAlumnoCurso")
 	public String agregarAlumnoAlCurso(Model model, @Param("idcurso") int idcurso, 
 			@Param("dnialumno") int dnialumno) {
@@ -62,8 +69,11 @@ public class CursoMateriaProfesorController {
 		return "usuarios";		
 		
 	}
-	
-	
+		
+	/* Eliminar un registro del curso, es decir un profesor con su materia
+	 * decrementa la cantidad
+	 * y muestra info del curso 
+	 * redireccionando a curso.html */	
 	@GetMapping("/deleteRegistroCurso/{id}")
 	public String deleteRegistroCurso(Model model, @PathVariable int id){
 		

@@ -16,13 +16,15 @@ public class MateriaImpleServicio implements MateriaService{
 	@Autowired
 	private MateriaRepositorio materiaRepo;
 	
+	// elimina un materia
 	@Override
 	@Transactional()
 	public void deleteMateria(int idMateria) {
 		// TODO Auto-generated method stub
 		materiaRepo.spDeleteMateria(idMateria);
 	}
-
+	
+	// devuelve todas las materia
 	@Override
 	@Transactional()
 	public List<Materia> getAllMateria() {
@@ -31,6 +33,7 @@ public class MateriaImpleServicio implements MateriaService{
 		return materias;
 	}
 
+	// devuelve una materia
 	@Override
 	@Transactional()
 	public Materia getMateria(int idmateria) {
@@ -48,6 +51,7 @@ public class MateriaImpleServicio implements MateriaService{
 				                    m.getUrlprograma());
 	}
 
+	// agrega una materia
 	@Override
 	@Transactional()
 	public void updateMateria(Materia m) {
